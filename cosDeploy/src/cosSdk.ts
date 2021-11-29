@@ -4,7 +4,14 @@ import { fixPrefix } from "./utils";
 //https://github.com/tencentyun/cos-js-sdk-v5/blob/master/test/test.js
 
 
-export type UploadItem = Partial<UploadFileItemParams>;
+export interface UploadItem {
+    Key: string;
+    Body: COS.UploadBody,
+    /** 上传的进度回调方法 */
+    onProgress?: COS.onProgress,
+    /** 上传完成回调方法 */
+    onFileFinish?: (err: Error, data?: Record<string, any>) => void,
+}
 class CosSdk {
     cos: COS;
     params: InputParameter;

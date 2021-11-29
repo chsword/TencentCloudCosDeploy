@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "chsword-tencent-cloud",
   "name": "Tencent Release Tools",
-  "version": "0.0.3",
+  "version": "1.0.9",
   "publisher": "chsword",
   "targets": [
     {
@@ -19,11 +19,11 @@
   ],
   "contributions": [
     {
-      "id": "custom-build-release-task",
+      "id": "chsword-tencent-cloud-cos-deploy",
       "type": "ms.vss-distributed-task.task",
       "targets": ["ms.vss-distributed-task.tasks"],
       "properties": {
-        "name": "chsword-tencent-cloud-cos-deploy"
+        "name": "cosDeploy"
       }
     }
   ]
