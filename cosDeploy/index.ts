@@ -1,5 +1,6 @@
 import tl = require('azure-pipelines-task-lib/task');
 import { GetParameters } from "./src/getParameter"
+import fs = require('fs');
 async function run() {
     try {
 

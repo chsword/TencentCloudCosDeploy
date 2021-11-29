@@ -12,6 +12,8 @@
     "Minor": 1,
     "Patch": 0
   },
+  "runsOn": ["Agent", "DeploymentGroup"],
+  "visibility": ["Release"],
   "instanceNameFormat": "Upload Files to cos: $(Bucket)",
   "inputs": [
     {

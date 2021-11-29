@@ -2,8 +2,8 @@
   "manifestVersion": 1,
   "id": "chsword-tencent-cloud",
   "name": "Tencent Release Tools",
-  "version": "0.0.2",
-  "publisher": "Zou Jian",
+  "version": "0.0.3",
+  "publisher": "chsword",
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
