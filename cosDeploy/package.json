@@ -1,0 +1,38 @@
+{
+  "name": "tencent-cloud-cos-deploy",
+  "version": "1.0.0",
+  "description": "deploy static files on cloud.tencent.com cos.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/_suite.js",
+    "tscinit": "tsc --init --target es6",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chsword/TencentCloudCosDeploy.git"
+  },
+  "keywords": [
+    "devops",
+    "azure",
+    "tencent",
+    "cloud",
+    "cos"
+  ],
+  "author": "Zou Jian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chsword/TencentCloudCosDeploy/issues"
+  },
+  "homepage": "https://github.com/chsword/TencentCloudCosDeploy#readme",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^3.1.10"
+  },
+  "devDependencies": {
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.11.10",
+    "@types/q": "^1.5.5",
+    "sync-request": "^6.1.0",
+    "typescript": "4.0.2"
+  }
+}

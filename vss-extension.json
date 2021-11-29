@@ -1,0 +1,30 @@
+{
+  "manifestVersion": 1,
+  "id": "chsword-tencent-cloud",
+  "name": "Tencent Release Tools",
+  "version": "0.0.2",
+  "publisher": "Zou Jian",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "Deploy to Tencent Cloud Cos.",
+  "categories": ["Azure Pipelines"],
+  "icons": {},
+  "files": [
+    {
+      "path": "cosDeploy"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "custom-build-release-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "chsword-tencent-cloud-cos-deploy"
+      }
+    }
+  ]
+}
