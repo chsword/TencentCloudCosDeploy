@@ -6,11 +6,11 @@ interface InputParameter {
     SecretKey: string;
 
     SourceFolder: string;
-    Contents?: string;
+    Contents: string[];
     TargetFolder: string;
     CleanTargetFolder: boolean;
 
     OverWrite: boolean;
-    retryCount?: string;
-    delayBetweenRetries?: string;
+    RetryCount: number;
+    DelayBetweenRetries: number;
 }

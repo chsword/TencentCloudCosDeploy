@@ -8,14 +8,22 @@ function GetParameters(): InputParameter {
         SecretKey: tl.getInput("SecretKey", true) || "",
 
         SourceFolder: tl.getPathInput("SourceFolder", true) || "",
-        Contents: tl.getInput("Contents", true),
+        Contents: tl.getDelimitedInput('Contents', '\n', true),
         TargetFolder: tl.getInput("TargetFolder", true) || "/",
         CleanTargetFolder: tl.getBoolInput("CleanTargetFolder", false),
 
         OverWrite: tl.getBoolInput("OverWrite", false),
-        retryCount: tl.getInput("retryCount", false),
-        delayBetweenRetries: tl.getInput("delayBetweenRetries", false),
+        RetryCount: GetNumber("retryCount"),
+        DelayBetweenRetries: GetNumber("delayBetweenRetries"),
     }
+}
+
+function GetNumber(key: string) {
+    var num = parseInt(tl.getInput(key) || "0");
+    if (isNaN(num) || num < 0) {
+        return 0;
+    }
+    return num;
 }
 
 export { GetParameters }
