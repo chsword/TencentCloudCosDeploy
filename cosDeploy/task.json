@@ -12,15 +12,107 @@
     "Minor": 1,
     "Patch": 0
   },
-  "instanceNameFormat": "Echo $(samplestring)",
+  "instanceNameFormat": "Upload Files to cos: $(Bucket)",
   "inputs": [
     {
-      "name": "samplestring",
+      "name": "Bucket",
       "type": "string",
-      "label": "Sample String",
+      "label": "Tencent Cloud Bucket",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "A sample string"
+      "helpMarkDown": "Bucket Name"
+    },
+    {
+      "name": "Region",
+      "type": "string",
+      "label": "Tencent Cloud Region",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Region Name eg: ap-beijing"
+    },
+    {
+      "name": "AppId",
+      "type": "string",
+      "label": "Tencent Cloud AppId",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "AppId"
+    },
+    {
+      "name": "SecretId",
+      "type": "string",
+      "label": "Tencent Cloud SecretId",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "SecretId"
+    },
+    {
+      "name": "SecretKey",
+      "type": "string",
+      "label": "Tencent Cloud SecretKey",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "SecretKey"
+    },
+    {
+      "name": "SourceFolder",
+      "type": "filePath",
+      "label": "Source Folder",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The source folder that the copy pattern(s) will be run from.  Empty is the root of the repo.  Use [variables](https://go.microsoft.com/fwlink/?LinkID=550988) if files are not in the repo. Example: $(agent.builddirectory)"
+    },
+    {
+      "name": "Contents",
+      "type": "multiLine",
+      "label": "Contents",
+      "defaultValue": "**",
+      "required": true,
+      "helpMarkDown": "File paths to include as part of the copy. Supports multiple lines of match patterns. [More Information](https://go.microsoft.com/fwlink/?LinkID=708389)"
+    },
+    {
+      "name": "TargetFolder",
+      "type": "string",
+      "label": "Target Folder",
+      "defaultValue": "/",
+      "required": true,
+      "helpMarkDown": "Target folder or UNC path files will copy to. You can use [variables](http://go.microsoft.com/fwlink/?LinkID=550988). Example: $(build.artifactstagingdirectory)"
+    },
+    {
+      "name": "CleanTargetFolder",
+      "type": "boolean",
+      "label": "Clean Target Folder",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Delete all existing files in target folder before copy",
+      "groupName": "advanced"
+    },
+    {
+      "name": "OverWrite",
+      "type": "boolean",
+      "label": "Overwrite",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Replace existing file in target folder",
+      "groupName": "advanced"
+    },
+    {
+      "name": "retryCount",
+      "type": "string",
+      "label": "Retry count to copy the file",
+      "defaultValue": "0",
+      "required": false,
+      "helpMarkDown": "Specify the retry count to copy the file. It might help to resolve intermittent issues e.g. with UNC target paths on a remote host.",
+      "groupName": "advanced"
+    },
+    {
+      "name": "delayBetweenRetries",
+      "type": "string",
+      "label": "Delay between two retries.",
+      "defaultValue": "1000",
+      "required": false,
+      "helpMarkDown": "Specify the delay between two retries. It might help to be more resilient to intermittent issues e.g. with UNC target paths on a remote host.",
+      "groupName": "advanced"
     }
   ],
   "execution": {

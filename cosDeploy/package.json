@@ -4,7 +4,7 @@
   "description": "deploy static files on cloud.tencent.com cos.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/_suite.js",
+    "test": "tsc & mocha tests/_suite.js",
     "tscinit": "tsc --init --target es6",
     "tsc": "tsc"
   },
