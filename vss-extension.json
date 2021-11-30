@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "chsword-tencent-cloud",
   "name": "Tencent Release Tools",
-  "version": "1.0.66",
+  "version": "1.0.68",
   "publisher": "chsword",
   "targets": [
     {
@@ -12,7 +12,7 @@
   "description": "Deploy to Tencent Cloud Cos.",
   "categories": ["Azure Pipelines"],
   "icons": {
-    "default": "glogo.png"
+    "default": "logo.png"
   },
   "files": [
     {

@@ -1,9 +1,13 @@
 {
+  "scripts": {
+    "build": "rimraf *.vsix & ./build.bat"
+  },
   "devDependencies": {
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.11.10",
     "@types/q": "^1.5.5",
     "sync-request": "^6.1.0",
-    "typescript": "4.0.2"
+    "typescript": "4.0.2",
+    "rimraf": "^3.0.2"
   }
 }
