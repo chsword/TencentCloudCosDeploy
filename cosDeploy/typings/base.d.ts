@@ -1,7 +1,7 @@
 interface InputParameter {
     Bucket: string;
     Region: string;
-    AppId: string;
+    //  AppId: string;
     SecretId: string;
     SecretKey: string;
 
@@ -10,8 +10,8 @@ interface InputParameter {
     TargetFolder: string;
     CleanTargetFolder: boolean;
 
-    OverWrite: boolean;
-    RetryCount: number;
-    DelayBetweenRetries: number;
+    // OverWrite: boolean;
+    //  RetryCount: number;
+    //  DelayBetweenRetries: number;
 }
 

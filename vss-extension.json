@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "chsword-tencent-cloud",
   "name": "Tencent Release Tools",
-  "version": "1.0.68",
+  "version": "1.0.74",
   "publisher": "chsword",
   "targets": [
     {
@@ -15,8 +15,14 @@
     "default": "logo.png"
   },
   "files": [
+    { "path": "cosDeploy/node_modules" },
+    { "path": "cosDeploy/index.js" },
+    { "path": "cosDeploy/task.json" },
+    { "path": "cosDeploy/src" },
     {
-      "path": "cosDeploy"
+      "path": "logo.png",
+      "addressable": true,
+      "packagePath": "/cosDeploy/icon.png"
     }
   ],
   "contributions": [

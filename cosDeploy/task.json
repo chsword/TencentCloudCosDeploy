@@ -10,7 +10,7 @@
   "version": {
     "Major": 1,
     "Minor": 1,
-    "Patch": 47
+    "Patch": 51
   },
   "runsOn": ["Agent", "DeploymentGroup"],
   "visibility": ["Release"],
@@ -31,14 +31,6 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "Region Name eg: ap-beijing"
-    },
-    {
-      "name": "AppId",
-      "type": "string",
-      "label": "Tencent Cloud AppId",
-      "defaultValue": "",
-      "required": true,
-      "helpMarkDown": "AppId"
     },
     {
       "name": "SecretId",
@@ -78,7 +70,7 @@
       "label": "Target Folder",
       "defaultValue": "/",
       "required": true,
-      "helpMarkDown": "Target folder or UNC path files will copy to. You can use [variables](http://go.microsoft.com/fwlink/?LinkID=550988). Example: $(build.artifactstagingdirectory)"
+      "helpMarkDown": "folder on Cos, default is /"
     },
     {
       "name": "CleanTargetFolder",

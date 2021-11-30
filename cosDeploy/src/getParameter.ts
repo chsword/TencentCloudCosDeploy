@@ -3,7 +3,7 @@ function GetParameters(): InputParameter {
     return {
         Bucket: tl.getInput("Bucket", true) || "",
         Region: tl.getInput("Region", true) || "",
-        AppId: tl.getInput("AppId", true) || "",
+        // AppId: tl.getInput("AppId", true) || "",
         SecretId: tl.getInput("SecretId", true) || "",
         SecretKey: tl.getInput("SecretKey", true) || "",
 
@@ -12,9 +12,9 @@ function GetParameters(): InputParameter {
         TargetFolder: tl.getInput("TargetFolder", true) || "/",
         CleanTargetFolder: tl.getBoolInput("CleanTargetFolder", false),
 
-        OverWrite: tl.getBoolInput("OverWrite", false),
-        RetryCount: GetNumber("retryCount"),
-        DelayBetweenRetries: GetNumber("delayBetweenRetries"),
+        // OverWrite: tl.getBoolInput("OverWrite", false),
+        //   RetryCount: GetNumber("retryCount"),
+        //   DelayBetweenRetries: GetNumber("delayBetweenRetries"),
     }
 }
 

@@ -1,9 +1,5 @@
 import COS from "cos-nodejs-sdk-v5";
-//const COS = c as any
-import { UploadBody, onProgress, UploadFileItemParams } from "cos-nodejs-sdk-v5"
-//import COS = require("../lib/cos-js-sdk-v5.js");
-//import * as COS from "cos-js-sdk-v5";//'../lib/cos-js-sdk-v5.js'
-//type UploadFileItemParams = COS.UploadFileItemParams;
+import { onProgress, UploadFileItemParams } from "cos-nodejs-sdk-v5"
 import { fixPrefix } from './utils';
 
 //https://github.com/tencentyun/cos-js-sdk-v5/blob/master/test/test.js
@@ -19,7 +15,7 @@ interface UploadItem {
     Key: string;
     // Body: UploadBody,
     /** 上传的进度回调方法 */
-    onProgress?: onProgress;// (p: ProgressInfo) => any,
+    onProgress?: onProgress;
     /** 上传完成回调方法 */
     onFileFinish?: (err: Error, data?: Record<string, any>) => void,
 }
@@ -29,8 +25,6 @@ class CosSdk {
 
     constructor(params: InputParameter) {
         this.params = params;
-        console.log("COS", 1)
-        //console.log("COS", COS)
         console.log("using COS version:", COS.version);
         this.cos = new COS({
             SecretId: params.SecretId,
@@ -40,7 +34,7 @@ class CosSdk {
             ChunkParallelLimit: 1,   // 控制单个文件下分片上传并发数
             ChunkSize: 4 * 1024 * 1024,  // 控制分片大小，单位 B
             ProgressInterval: 1,  // 控制 onProgress 回调的间隔
-            ChunkRetryTimes: params.RetryCount,   // 控制文件切片后单片上传失败后重试次数
+            ChunkRetryTimes: 3,   // 控制文件切片后单片上传失败后重试次数
             UploadCheckContentMd5: true,   // 上传过程计算 Content-MD5
         });
     }
