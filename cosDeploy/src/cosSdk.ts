@@ -36,9 +36,9 @@ class CosSdk {
             SecretId: params.SecretId,
             SecretKey: params.SecretKey,
             // 可选参数
-            FileParallelLimit: 10,    // 控制文件上传并发数
-            ChunkParallelLimit: 3,   // 控制单个文件下分片上传并发数
-            ChunkSize: 1024 * 1024,  // 控制分片大小，单位 B
+            FileParallelLimit: 3,    // 控制文件上传并发数
+            ChunkParallelLimit: 1,   // 控制单个文件下分片上传并发数
+            ChunkSize: 4 * 1024 * 1024,  // 控制分片大小，单位 B
             ProgressInterval: 1,  // 控制 onProgress 回调的间隔
             ChunkRetryTimes: params.RetryCount,   // 控制文件切片后单片上传失败后重试次数
             UploadCheckContentMd5: true,   // 上传过程计算 Content-MD5
@@ -66,6 +66,7 @@ class CosSdk {
     }
     async updateList(list: UploadItem[]) {
         const files: UploadFileItemParams[] = list.map(item => Object.assign(this.baseInfo, item));
+        console.log("upload count: ", files.length);
         const res = await this.cos.uploadFiles(Object.assign(this.baseInfo, {
             files: files
         }));

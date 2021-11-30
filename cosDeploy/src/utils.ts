@@ -6,7 +6,7 @@ function keyJoin(targetFolder: string, relativePath: string): string {
 function fixPrefix(targetFolder: string) {
     let tf = targetFolder || "";
     if (tf) {
-        tf = tf.replace(/\\/, "/").trim();
+        tf = tf.replace(/\\/ig, "/").trim();
         if (tf === "/") return "";
         if (!tf.endsWith("/")) tf = tf + "/";
         if (tf.startsWith("/")) {

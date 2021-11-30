@@ -24,19 +24,15 @@ async function uploadFiles(params: InputParameter) {
     let sourceFolderPattern = sourceFolder.replace('[', '[[]'); // directories can have [] in them, and they have special meanings as a pattern, so escape them
     let matchedPaths: string[] = tl.match(allPaths, params.Contents, sourceFolderPattern); // default match options
     let matchedFiles: string[] = matchedPaths.filter((itemPath: string) => !stats(itemPath, false).isDirectory()); // filter-out directories
-    console.log("files", matchedFiles);
-
     if (matchedFiles.length > 0) {
         const cosSdk = new CosSdk(params);
-
-
         try {
             const list: UploadItem[] = [];
             const fileCount = matchedFiles.length;
             let uploadedCount = 0;
             for (let file of matchedFiles) {
-                let relativePath = file.substring(sourceFolder.length).replace(/\\/, "/");
-                if (relativePath.startsWith(path.sep)) {
+                let relativePath = file.substring(sourceFolder.length).replace(/\\/ig, "/");
+                if (relativePath.startsWith("\\") || relativePath.startsWith("/")) {
                     relativePath = relativePath.substr(1);
                 }
                 const key = keyJoin(targetFolder, relativePath);
@@ -44,25 +40,28 @@ async function uploadFiles(params: InputParameter) {
                     FilePath: file,
                     Key: key,
                     onProgress: (p) => {
-                        tl.setProgress(uploadedCount / fileCount + p.percent / fileCount, `上传中 :${key}`)
+                        tl.setProgress((uploadedCount + p.percent) / fileCount, `上传中 :${key}`)
                         // console.log(`${key} : ${p.loaded}/${p.total} ${p.percent * 100}% ${p.speed}/Bs`)
                     },
-                    onFileFinish: (err) => {
+                    onFileFinish: (err, data) => {
                         if (err && err.message) {
                             console.log(err.name)
                             console.log(err.message)
                             console.error(err.stack)
                         } else {
                             uploadedCount++;
+                            //console.log("data", data)
+                            console.log(`${relativePath} upload successed.`)
                             tl.setProgress(uploadedCount / fileCount, `上传成功 :${key}`)
                         }
 
                     }
                 });
-                const res = await cosSdk.updateList(list);
 
-                tl.setResult(tl.TaskResult.Succeeded, "successed");
             }
+            const res = await cosSdk.updateList(list);
+
+            tl.setResult(tl.TaskResult.Succeeded, "successed");
         } catch (err: any) {
             console.error(err);
             tl.setResult(tl.TaskResult.Failed, err);
@@ -80,7 +79,4 @@ function stats(path: string, ignoreEnoent: boolean): tl.FsStats {
         throw err;
     }
 }
-
-//exports.default = uploadFiles
-
 export { uploadFiles }

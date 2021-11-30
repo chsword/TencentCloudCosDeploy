@@ -16,7 +16,7 @@ async function run() {
         // tl.debug("params: " + params);
         await uploadFiles(params);
         console.log("end processing ...");
-        tl.setResult(tl.TaskResult.Succeeded, "");
+        //tl.setResult(tl.TaskResult.Succeeded, "");
     }
     catch (err: any) {
         console.error(err);

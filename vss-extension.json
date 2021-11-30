@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "chsword-tencent-cloud",
   "name": "Tencent Release Tools",
-  "version": "1.0.59",
+  "version": "1.0.66",
   "publisher": "chsword",
   "targets": [
     {
