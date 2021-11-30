@@ -1,20 +1,20 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
   "id": "4c545984-95c8-4b4f-b737-691f9063da40",
-  "name": "chsword-tencent-cloud-cos-deploy",
+  "name": "ChswordTencentCloudCosDeploy",
   "friendlyName": "Deploy to Tencent Cloud Cos",
   "description": "Deploy static files on tencent cloud cos.",
-  "helpMarkDown": "",
+  "helpMarkDown": "[More Information](https://github.com/chsword/TencentCloudDevOpsTools)",
   "category": "Utility",
   "author": "Zou Jian",
   "version": {
-    "Major": 0,
+    "Major": 1,
     "Minor": 1,
-    "Patch": 0
+    "Patch": 42
   },
   "runsOn": ["Agent", "DeploymentGroup"],
   "visibility": ["Release"],
-  "instanceNameFormat": "Upload Files to cos: $(Bucket)",
+  "instanceNameFormat": "Upload to Cos: $(Bucket)",
   "inputs": [
     {
       "name": "Bucket",
@@ -118,7 +118,7 @@
     }
   ],
   "execution": {
-    "Node10": {
+    "Node": {
       "target": "index.js"
     }
   }

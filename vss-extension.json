@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "chsword-tencent-cloud",
   "name": "Tencent Release Tools",
-  "version": "1.0.9",
+  "version": "1.0.59",
   "publisher": "chsword",
   "targets": [
     {
@@ -11,7 +11,9 @@
   ],
   "description": "Deploy to Tencent Cloud Cos.",
   "categories": ["Azure Pipelines"],
-  "icons": {},
+  "icons": {
+    "default": "glogo.png"
+  },
   "files": [
     {
       "path": "cosDeploy"
@@ -19,7 +21,7 @@
   ],
   "contributions": [
     {
-      "id": "chsword-tencent-cloud-cos-deploy",
+      "id": "ChswordTencentCloudCosDeploy",
       "type": "ms.vss-distributed-task.task",
       "targets": ["ms.vss-distributed-task.tasks"],
       "properties": {

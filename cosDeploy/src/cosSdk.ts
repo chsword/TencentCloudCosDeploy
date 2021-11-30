@@ -1,25 +1,37 @@
-import { UploadFileItemParams } from "cos-js-sdk-v5";
-import COS = require("cos-js-sdk-v5");
-import { fixPrefix } from "./utils";
+import COS from "cos-nodejs-sdk-v5";
+//const COS = c as any
+import { UploadBody, onProgress, UploadFileItemParams } from "cos-nodejs-sdk-v5"
+//import COS = require("../lib/cos-js-sdk-v5.js");
+//import * as COS from "cos-js-sdk-v5";//'../lib/cos-js-sdk-v5.js'
+//type UploadFileItemParams = COS.UploadFileItemParams;
+import { fixPrefix } from './utils';
+
 //https://github.com/tencentyun/cos-js-sdk-v5/blob/master/test/test.js
 
-
-export interface UploadItem {
+// interface ProgressInfo {
+//     loaded: number,
+//     total: number,
+//     speed: number,
+//     percent: number,
+// }
+interface UploadItem {
+    FilePath: string;
     Key: string;
-    Body: COS.UploadBody,
+    // Body: UploadBody,
     /** 上传的进度回调方法 */
-    onProgress?: COS.onProgress,
+    onProgress?: onProgress;// (p: ProgressInfo) => any,
     /** 上传完成回调方法 */
     onFileFinish?: (err: Error, data?: Record<string, any>) => void,
 }
 class CosSdk {
     cos: COS;
     params: InputParameter;
-    /**
-     *
-     */
+
     constructor(params: InputParameter) {
         this.params = params;
+        console.log("COS", 1)
+        //console.log("COS", COS)
+        console.log("using COS version:", COS.version);
         this.cos = new COS({
             SecretId: params.SecretId,
             SecretKey: params.SecretKey,
@@ -68,3 +80,4 @@ class CosSdk {
 }
 
 export { CosSdk }
+export type { UploadItem }
