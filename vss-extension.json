@@ -1,18 +1,52 @@
 {
   "manifestVersion": 1,
-  "id": "chsword-tencent-cloud",
-  "name": "Tencent Release Tools",
-  "version": "1.0.74",
-  "publisher": "chsword",
+  "id": "tc-cloud-tools",
+  "name": "Tencent Cloud Release Tools",
+  "version": "1.0.86",
+  "publisher": "zoujian",
+  "description": "Tencent Cloud Release Tools.",
+  "tags": ["tencent cloud"],
+  "galleryFlags": ["Public", "Preview"],
+  "branding": {
+    "color": "rgb(34, 34, 34)",
+    "theme": "dark"
+  },
+  "links": {
+    "home": {
+      "uri": "https://github.com/chsword/TencentCloudDevOpsTools"
+    },
+    "repository": {
+      "uri": "https://github.com/chsword/TencentCloudDevOpsTools"
+    },
+    "issues": {
+      "uri": "https://github.com/chsword/TencentCloudDevOpsTools/issues"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/chsword/TencentCloudDevOpsTools"
+  },
+  "content": {
+    "details": {
+      "path": "overview.md"
+    }
+  },
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
     }
   ],
-  "description": "Deploy to Tencent Cloud Cos.",
+  "screenshots": [
+    {
+      "path": "screenshots/deploy-to-cos.png"
+    },
+    {
+      "path": "screenshots/deploy-to-cos-run.png"
+    }
+  ],
   "categories": ["Azure Pipelines"],
   "icons": {
-    "default": "logo.png"
+    "default": "images/logo.png"
   },
   "files": [
     { "path": "cosDeploy/node_modules" },
@@ -20,14 +54,14 @@
     { "path": "cosDeploy/task.json" },
     { "path": "cosDeploy/src" },
     {
-      "path": "logo.png",
+      "path": "images/logo.png",
       "addressable": true,
       "packagePath": "/cosDeploy/icon.png"
     }
   ],
   "contributions": [
     {
-      "id": "ChswordTencentCloudCosDeploy",
+      "id": "TencentCloudCosDeploy",
       "type": "ms.vss-distributed-task.task",
       "targets": ["ms.vss-distributed-task.tasks"],
       "properties": {

@@ -353,3 +353,4 @@ MigrationBackup/
 *.vsix
 *.lock
 *.js
+package-lock.json

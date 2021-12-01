@@ -1,7 +1,17 @@
 # TencentCloudCosDeploy
 deploy static file on cloud.tencent.com / cloud.qq.com  cos.
 
+## Install
 
-### install cli
+https://marketplace.visualstudio.com/items?itemName=zoujian.tc-cloud-tools
 
-```npm i -g tfx-cli```
+## Release Notes
+
+[overview.md](./overview.md)
+
+## Build
+```
+npm i -g tfx-cli
+yarn tsc
+yarn build
+```

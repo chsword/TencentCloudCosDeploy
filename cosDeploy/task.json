@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
   "id": "4c545984-95c8-4b4f-b737-691f9063da40",
-  "name": "ChswordTencentCloudCosDeploy",
+  "name": "TencentCloudCosDeploy",
   "friendlyName": "Deploy to Tencent Cloud Cos",
   "description": "Deploy static files on tencent cloud cos.",
   "helpMarkDown": "[More Information](https://github.com/chsword/TencentCloudDevOpsTools)",
@@ -10,7 +10,7 @@
   "version": {
     "Major": 1,
     "Minor": 1,
-    "Patch": 51
+    "Patch": 55
   },
   "runsOn": ["Agent", "DeploymentGroup"],
   "visibility": ["Release"],
@@ -26,11 +26,40 @@
     },
     {
       "name": "Region",
-      "type": "string",
+      "type": "pickList",
       "label": "Tencent Cloud Region",
-      "defaultValue": "",
+      "defaultValue": "ap-beijing",
       "required": true,
-      "helpMarkDown": "Region Name eg: ap-beijing"
+      "options": {
+        "ap-beijing": "ap-beijing",
+        "ap-shanghai": "ap-shanghai",
+        "ap-shenzhen": "ap-shenzhen",
+        "ap-beijing-1": "ap-beijing-1",
+        "ap-nanjing": "ap-nanjing",
+        "ap-guangzhou": "ap-guangzhou",
+        "ap-chengdu": "ap-chengdu",
+        "ap-chongqing": "ap-chongqing",
+        "ap-shenzhen-fsi": "ap-shenzhen-fsi",
+        "ap-shanghai-fsi": "ap-shanghai-fsi",
+        "ap-beijing-fsi": "ap-beijing-fsi",
+        "ap-hongkong": "ap-hongkong",
+        "ap-singapore": "ap-singapore",
+        "ap-mumbai": "ap-mumbai",
+        "ap-jakarta": "ap-jakarta",
+        "ap-seoul": "ap-seoul",
+        "ap-bangkok": "ap-bangkok",
+        "ap-tokyo": "ap-tokyo",
+        "na-siliconvalley": "na-siliconvalley",
+        "na-ashburn": "na-ashburn",
+        "na-toronto": "na-toronto",
+        "sa-saopaulo": "sa-saopaulo",
+        "eu-frankfurt": "eu-frankfurt",
+        "eu-moscow": "eu-moscow"
+      },
+      "properties": {
+        "EditableOptions": "True"
+      },
+      "helpMarkDown": "Region Name eg: ap-beijing https://cloud.tencent.com/document/product/436/6224"
     },
     {
       "name": "SecretId",

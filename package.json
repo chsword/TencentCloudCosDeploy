@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build": "rimraf *.vsix & ./build.bat"
+    "build": "rimraf *.vsix & ./build.bat",
+    "tsc": "cd./cosDeploy & tsc"
   },
   "devDependencies": {
     "@types/mocha": "^9.0.0",
