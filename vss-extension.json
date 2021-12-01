@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "tc-cloud-tools",
   "name": "Tencent Cloud Release Tools",
-  "version": "1.0.87",
+  "version": "1.1.1",
   "publisher": "zoujian",
   "description": "Tencent Cloud Release Tools.",
   "tags": ["tencent cloud"],
@@ -49,6 +49,14 @@
     "default": "images/logo.png"
   },
   "files": [
+    { "path": "refreshCdn/node_modules" },
+    { "path": "refreshCdn/index.js" },
+    { "path": "refreshCdn/task.json" },
+    {
+      "path": "images/logo.png",
+      "addressable": true,
+      "packagePath": "/refreshCdn/icon.png"
+    },
     { "path": "cosDeploy/node_modules" },
     { "path": "cosDeploy/index.js" },
     { "path": "cosDeploy/task.json" },
@@ -66,6 +74,14 @@
       "targets": ["ms.vss-distributed-task.tasks"],
       "properties": {
         "name": "cosDeploy"
+      }
+    },
+    {
+      "id": "TencentCloudRefreshCdn",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "refreshCdn"
       }
     }
   ]

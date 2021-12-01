@@ -1,10 +1,9 @@
 {
-  "name": "tencent-cloud-cos-deploy",
+  "name": "tencent-cloud-cdn-refresh",
   "version": "1.0.0",
-  "description": "deploy static files on cloud.tencent.com cos.",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsc & mocha tests/_suite.js",
     "tscinit": "tsc --init --target es6",
     "tsc": "tsc"
   },
@@ -27,6 +26,6 @@
   "homepage": "https://github.com/chsword/TencentCloudDevOpsTools#readme",
   "dependencies": {
     "azure-pipelines-task-lib": "^3.1.10",
-    "cos-nodejs-sdk-v5": "2.11.3"
+    "tencentcloud-sdk-nodejs": "4.0.248"
   }
 }
