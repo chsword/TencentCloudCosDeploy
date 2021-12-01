@@ -13,9 +13,9 @@
 
 [Add tasks] => search "Deploy to Tencent Cloud Cos" => [Add]
 
-![Setting](./screenshots/deploy-to-cos.png)
+![Setting](https://raw.githubusercontent.com/chsword/TencentCloudDevOpsTools/main/screenshots/deploy-to-cos.png)
 
-![Run result](./screenshots/deploy-to-cos-run.png)
+![Run result](https://raw.githubusercontent.com/chsword/TencentCloudDevOpsTools/main/screenshots/deploy-to-cos-run.png)
 
 ## Other practices
 

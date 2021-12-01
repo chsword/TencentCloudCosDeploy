@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "tc-cloud-tools",
   "name": "Tencent Cloud Release Tools",
-  "version": "1.0.86",
+  "version": "1.0.87",
   "publisher": "zoujian",
   "description": "Tencent Cloud Release Tools.",
   "tags": ["tencent cloud"],
